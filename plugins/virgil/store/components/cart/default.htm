@@ -1,0 +1,72 @@
+<!--<div class="col-md-12">-->
+        <!--{% for product in __SELF__.getCartItems() %}-->
+
+        <!--<div class="row" id="cart_{{product.id}}">-->
+
+                <!--<div class="col-md-2"><span id="cart_{{product.id}}_count">{{product.count}}</span> x</div>-->
+                <!--<div class="col-md-8">{{product.name}}</div>-->
+                <!--<div class="col-md-2"> <button-->
+                        <!--class="btn btn-danger"-->
+                        <!--style="    padding: 2px 5px;"-->
+                        <!--data-request="Cart::onRemoveFromCart"-->
+                        <!--data-request-data='{"id" : {{product.id}}}'-->
+                        <!--data-request-success="document.getElementById('products_count').innerHTML= data.count; if(data.item_count == 0) $('#cart_{{product.id}}').remove(); else document.getElementById('cart_{{product.id}}_count').innerHTML= data.item_count;"-->
+                <!--&gt;X</button> </div>-->
+
+
+
+        <!--</div>-->
+        <!--{% endfor %}-->
+
+
+<!--</div>-->
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Cantitate</th>
+        <th>Nume</th>
+        <th>Pret</th>
+        <th>Optiuni</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for product in __SELF__.getCartItems()['products'] %}
+    <tr id="cart_{{product.id}}">
+        <td><span id="cart_{{product.id}}_count">{{product.count}}</span> x</td>
+        <td>{{product.name}} </td>
+        <td>{{product.price}}</td>
+        <td> <button
+                class="btn btn-danger"
+                style="    padding: 2px 5px;"
+                data-request="Cart::onRemoveFromCart"
+                data-request-data='{"id" : {{product.id}}}'
+                data-request-success="document.getElementById('products_count').innerHTML= data.count; if(data.item_count == 0) $('#cart_{{product.id}}').remove(); else document.getElementById('cart_{{product.id}}_count').innerHTML= data.item_count;"
+        >X</button> </td>
+    </tr>
+    {% endfor %}
+    {% if __SELF__.getCartItemsCount() > 0 %}
+    <tr>
+        <td colspan="2">
+            Total
+        </td>
+        <td >
+            {{__SELF__.getCartItems()['total']}}
+        </td>
+        <td>
+            {% if user %}
+                <button
+                        class="btn btn-success"
+                        style="    padding: 2px 5px;"
+                        data-request="Cart::onBuy"
+                        data-request-data='{"id" : {{user.id}}}'
+                >Cumpara</button>
+            {% else %}
+                <a class="btn btn-success" href="/cont">Conectare</a>
+            {% endif %}
+
+        </td>
+    </tr>
+    {% endif %}
+
+    </tbody>
+</table>

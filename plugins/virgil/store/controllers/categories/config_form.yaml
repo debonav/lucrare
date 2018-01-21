@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Category
+
+# Model Form Field configuration
+form: $/virgil/store/models/category/fields.yaml
+
+# Model Class name
+modelClass: Virgil\Store\Models\Category
+
+# Default redirect location
+defaultRedirect: virgil/store/categories
+
+# Create page
+create:
+    title: Create Category
+    redirect: virgil/store/categories/update/:id
+    redirectClose: virgil/store/categories
+
+# Update page
+update:
+    title: Edit Category
+    redirect: virgil/store/categories
+    redirectClose: virgil/store/categories
+
+# Preview page
+preview:
+    title: Preview Category

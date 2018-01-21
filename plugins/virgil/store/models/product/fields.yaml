@@ -1,0 +1,24 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+#    id:
+#        label: ID
+#        disabled: true
+#        span: auto
+    name:
+        label: nume
+        span: auto
+    category_id:
+        label: categorie
+        relation: category
+        type: dropdown
+        span: auto
+    available:
+        label: Disponibile
+        span: auto
+    pictures:
+        label: Imagini
+        type: fileupload
+        mode: image

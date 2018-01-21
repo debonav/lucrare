@@ -1,0 +1,9 @@
+1.0.1:
+  - Database
+  - create_categories_table.php
+  - create_products_table.php
+  - create_comments_table.php
+  - create_reviews_table.php
+  - create_orders_table.php
+  - create_many_to_many_tables.php
+  - seeder.php

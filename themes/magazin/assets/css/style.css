@@ -1,0 +1,43 @@
+body {
+    padding-top: 55px;
+}
+
+.card{
+    height: 450px
+}
+
+ul.pagination {
+    margin: 40px auto;
+}
+
+.pagination > li {
+    border: 1px solid gray;
+    margin: 5px;
+}
+.pagination a{
+    padding: 5px 10px;
+    text-decoration: none;
+}
+.pagination > li.active {
+    background: grey;
+    color: black;
+    padding: 5px 10px;
+}
+
+.pagination li.disabled {
+    display: none;
+}
+
+.comment-header{
+    font-size: 14px;
+    font-style: italic;
+}
+
+body > .container{
+    min-height: calc(100vh - 175px);
+}
+
+.product{
+    width: 100%;
+    margin-bottom: 15px;
+}

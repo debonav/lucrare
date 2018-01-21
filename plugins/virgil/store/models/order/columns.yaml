@@ -1,0 +1,19 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    user_id:
+        label: Utilizator
+        relation: user
+        select: name
+    price:
+        label: Pret
+    status:
+        label: Status
+        type: partial
+    created_at:
+        label: Data

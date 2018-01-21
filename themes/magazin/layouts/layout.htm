@@ -1,0 +1,123 @@
+[CategoriesMenu]
+
+[Cart]
+
+[session]
+security = "all"
+==
+<?php
+function onStart(){
+}
+?>
+==
+<html>
+<head>
+    <title></title>
+
+    <link href="{{ 'assets/vendor/bootstrap/css/bootstrap.css'|theme }}" rel="stylesheet">
+    <link href="{{ 'assets/css/style.css'|theme }}" rel="stylesheet">
+    <link href="{{ 'assets/css/magnific-popup.css'|theme }}" rel="stylesheet">
+    <!--<link href="{{ 'assets/css/theme.css'|theme }}" rel="stylesheet">-->
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">Nume magazin</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/despre">Despre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+                {% if user %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/comenzi">Comenzi</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cont">Contul meu</a>
+                </li>
+                    <li class="nav-item">
+                        <a data-request="onLogout" data-request-data="redirect: '/'" class="nav-link" href="/logout">Deconectare</a>
+                    </li>
+
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cont">Conectare</a>
+                    </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/cos">Cos de cumparaturi (<span id="products_count">{{Cart.getCartItemsCount()}}</span>)</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-3">
+
+            <!--<h1 class="my-4">Magazin</h1>-->
+            <br>
+            <br>
+            <div class="list-group">
+                {% component 'CategoriesMenu' %}
+            </div>
+
+        </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+
+
+            <div class="row" style="padding-top: 45px;">
+
+                {% page %}
+
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+    </div>
+</footer>
+<!-- /.container -->
+<!-- Scripturi -->
+
+
+<script src="{{ 'assets/vendor/jquery/jquery.min.js'|theme }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/popper.min.js"></script>
+<script src="{{ 'assets/vendor/bootstrap/js/bootstrap.js'|theme }}"></script>
+<script src="{{ 'assets/vendor/jquery.magnific-popup.min.js'|theme }}"></script>
+<script src="{{ 'assets/vendor/main.js'|theme }}"></script>
+<!--{% framework %}-->
+{% framework extras %}
+<!-- <script src="{{ 'assets/javascript/app.js'|theme }}"></script> -->
+
+
+</body>
+</html>

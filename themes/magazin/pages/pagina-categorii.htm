@@ -1,0 +1,51 @@
+title = "Pagina Categorii"
+url = "/categorii/:slug"
+layout = "layout"
+is_hidden = 0
+==
+<?php
+function onStart()
+{
+$parts = explode("-",$this->param('slug'));
+$id = $parts[0];
+$this['category'] = \Virgil\Store\Models\Category::where('id',$id)->first();
+$this['products'] = \Virgil\Store\Models\Product::where('category_id',$id)->paginate(6);
+}
+?>
+==
+<div class="col-lg-12">
+    <h2>{{category.name}}</h2>
+</div>
+
+{% for product in products %}
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="card">
+        <!--<a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>-->
+        <a href="/produs/{{product.id}}-{{product.slug}}"><img class="card-img-top" src="{{product.image}}" alt=""></a>
+        <div class="card-body">
+            <h4 class="card-title">
+                <a href="/produs/{{product.id}}-{{product.slug}}">{{product.name}}</a>
+            </h4>
+            <h5>${{product.price}}</h5>
+            <p class="card-text">{{product.description}}</p>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">
+                {% if product.rating > 0 %}
+                {% for i in 1..product.rating%}&#9733; {%endfor%}
+                {%endif%}
+                {% if product.reverse_rating > 0 %}
+                {% for i in 1..product.reverse_rating%}&#9734; {%endfor%}
+                {%endif%}
+            </small>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<br>
+
+    <div class="col-lg-12">
+        {{ products.render|raw }}
+    </div>
+<br>

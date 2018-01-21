@@ -1,0 +1,61 @@
+title = "Produs"
+url = "/produs/:slug"
+layout = "layout"
+is_hidden = 0
+==
+<?php
+function onStart()
+{
+$parts = explode("-",$this->param('slug'));
+$id = $parts[0];
+$this['product'] = \Virgil\Store\Models\Product::where('id',$id)->first();
+}
+?>
+==
+<div class="col-lg-12">
+    <h2>{{product.name}}</h2>
+</div>
+<div class="col-lg-12">
+    <hr>
+</div>
+<div class="col-lg-8">
+    <p>
+        {{product.description}}
+    </p>
+</div>
+<div class="col-lg-4">
+    <p>
+        ${{product.price}}
+    </p>
+    <p>
+        <button
+                class="btn btn-default"
+                data-request="Cart::onAddToCart"
+                data-request-data='{"id" : {{product.id}}}'
+                data-request-success="document.getElementById('products_count').innerHTML= data.count;"
+        >
+            Adauga in cos
+        </button>
+    </p>
+</div>
+
+<div class="row product_images">
+    {% for image in product.pictures %}
+    <div class="col-md-4">
+        <a href="{{ image.getPath() }}">
+            <img class="product" src="{{ image.getPath() }}" alt="">
+        </a>
+    </div>
+
+    {% endfor %}
+</div>
+
+<!--Comentarii-->
+{% for comment in product.comments %}
+<div class="col-lg-6">
+    <span class="comment-header">{{comment.created_at}} - {{comment.user.last_name}} {{comment.user.first_name}}</span>
+    <p>{{comment.text}}</p>
+</div>
+<!--{{comment | json_encode}}-->
+<br>
+{% endfor %}

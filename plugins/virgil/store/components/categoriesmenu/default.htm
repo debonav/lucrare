@@ -1,0 +1,3 @@
+{% for item in __SELF__.getItems %}
+<a href="/categorii/{{item.id}}-{{str_slug(item.name)}}" class="list-group-item">{{item.name}}</a>
+{% endfor %}`

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Order
+
+# Model Form Field configuration
+form: $/virgil/store/models/order/fields.yaml
+
+# Model Class name
+modelClass: Virgil\Store\Models\Order
+
+# Default redirect location
+defaultRedirect: virgil/store/orders
+
+# Create page
+create:
+    title: Create Order
+    redirect: virgil/store/orders/update/:id
+    redirectClose: virgil/store/orders
+
+# Update page
+update:
+    title: Edit Order
+    redirect: virgil/store/orders
+    redirectClose: virgil/store/orders
+
+# Preview page
+preview:
+    title: Preview Order

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Product
+
+# Model Form Field configuration
+form: $/virgil/store/models/product/fields.yaml
+
+# Model Class name
+modelClass: Virgil\Store\Models\Product
+
+# Default redirect location
+defaultRedirect: virgil/store/products
+
+# Create page
+create:
+    title: Create Product
+    redirect: virgil/store/products/update/:id
+    redirectClose: virgil/store/products
+
+# Update page
+update:
+    title: Edit Product
+    redirect: virgil/store/products
+    redirectClose: virgil/store/products
+
+# Preview page
+preview:
+    title: Preview Product

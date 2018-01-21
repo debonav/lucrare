@@ -1,0 +1,16 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    name:
+        label: nume
+    category_id:
+        label: categorie
+        relation: category
+        select: name
+    available:
+        label: Disponibile

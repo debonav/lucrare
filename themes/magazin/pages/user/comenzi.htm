@@ -1,0 +1,26 @@
+title = "Comenzi"
+url = "/comenzi"
+layout = "layout"
+is_hidden = 0
+==
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>#ID</th>
+        <th>Pret</th>
+        <th>Data</th>
+        <th>Optiuni</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for order in Cart.getOrders(user.id) %}
+    <tr>
+        <td>{{order.id}} </td>
+        <td>{{order.price}} </td>
+        <td>{{order.created_at}} </td>
+        <td> - </td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>

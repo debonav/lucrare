@@ -1,0 +1,8 @@
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+
+import:
+    title: Importa produse
+    modelClass: Virgil\Store\Models\ProductImport
+    list: $/virgil/store/models/product/columns.yaml

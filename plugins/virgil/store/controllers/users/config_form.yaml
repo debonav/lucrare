@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: User
+
+# Model Form Field configuration
+form: $/virgil/store/models/user/fields.yaml
+
+# Model Class name
+modelClass: Virgil\Store\Models\User
+
+# Default redirect location
+defaultRedirect: virgil/store/users
+
+# Create page
+create:
+    title: Create User
+    redirect: virgil/store/users/update/:id
+    redirectClose: virgil/store/users
+
+# Update page
+update:
+    title: Edit User
+    redirect: virgil/store/users
+    redirectClose: virgil/store/users
+
+# Preview page
+preview:
+    title: Preview User

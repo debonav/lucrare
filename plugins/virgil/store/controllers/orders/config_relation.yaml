@@ -1,0 +1,12 @@
+ # ===================================
+ #  Relation Behavior Config
+ # ===================================
+ 
+products:
+   label: Produse
+   view:
+       toolbarButtons: create|delete
+       list: $/virgil/store/models/product/columns.yaml
+       form: $/virgil/store/models/product/fields.yaml
+#   manage:
+#       recordsPerPage: 10

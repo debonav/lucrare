@@ -1,0 +1,22 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    user:
+        label: User
+        type: recordfinder
+        list: $/virgil/store/models/user/columns.yaml
+        nameFrom: name
+        descriptionFrom: email
+        span: auto
+    price:
+        label: Pret
+        span: auto
+    status:
+        label: Status
+        span: auto
+        type: dropdown
+    produse:
+        label: Produse
+        type: partial
